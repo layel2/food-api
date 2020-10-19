@@ -72,31 +72,7 @@ def getFlexcontent(data):
                                         },
                                         "height": "sm",
                                         "style": "link"
-                                    },
-                                            {
-                                                "type": "box",
-                                                "layout": "baseline",
-                                                "spacing": "sm",
-                                                "contents": [
-                                                    {
-                                                        "type": "text",
-                                                        "text": "Message",
-                                                        "size": "sm",
-                                                        "color": "#AAAAAA",
-                                                        "flex": 1,
-                                                        "contents": []
-                                                    },
-                                                    {
-                                                        "type": "text",
-                                                        "text": data['featuredMessage'],
-                                                        "size": "sm",
-                                                        "color": "#666666",
-                                                        "flex": 5,
-                                                        "wrap": True,
-                                                        "contents": []
-                                                    }
-                                                ]
-                                            }
+                                    }
                                         ]
                                     }
                                 ]
