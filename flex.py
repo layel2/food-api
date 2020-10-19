@@ -81,7 +81,7 @@ def getFlexcontent(data):
                                 "size": "sm",
                                 "color": "#666666",
                                 "flex": 5,
-                                "wrap": true,
+                                "wrap": True,
                                 "contents": []
                             }
                             ]
