@@ -77,7 +77,7 @@ def getFlexcontent(data):
                             },
                             {
                                 "type": "text",
-                                "text": data['featuredMessage'],
+                                "text": data['featuredMessage']+" ",
                                 "size": "sm",
                                 "color": "#666666",
                                 "flex": 5,
