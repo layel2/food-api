@@ -73,16 +73,7 @@ def getFlexcontent(data):
                                         "height": "sm",
                                         "style": "link"
                                     },
-                                    {
-                                        "type": "button",
-                                        "action": {
-                                        "type": "uri",
-                                        "label": "Menu",
-                                        "uri": data['menu']
-                                        },
-                                        "height": "sm",
-                                        "style": "link"
-                                    },
+
                                             {
                                                 "type": "box",
                                                 "layout": "baseline",
