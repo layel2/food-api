@@ -63,15 +63,16 @@ def get_flex(data):
                                                         "flex": 1,
                                                         "contents": []
                                                     },
-                                                    {
-                                                        "type": "url",
-                                                        "label": "Google map",
-														"linkUri":gg_map_link(data[0]["lat"],data[0]["lng"]),
-                                                        "size": "sm",
-                                                        "color": "#666666",
-                                                        "flex": 5,
-                                                        "wrap": True,
-                                                        "contents": []
+       
+													{
+                                                        "type": "button",
+                                                        "action": {
+                                                        "type": "uri",
+                                                        "label": "MAP",
+                                                        "uri": gg_map_link(data[0]["lat"],data[0]["lng"])
+                                                        },
+                                                        "height": "sm",
+                                                        "style": "link"
                                                     }
                                                 ]
                                             },
