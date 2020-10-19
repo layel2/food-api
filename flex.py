@@ -74,6 +74,24 @@ def getFlexcontent(data):
                                         "style": "link"
                                     }
                                         ]
+                                    },
+                                    {
+                                        "type": "box",
+                                        "layout": "vertical",
+                                        "spacing": "sm",
+                                        "margin": "lg",
+                                        "contents": [
+                                                {
+                                        "type": "button",
+                                        "action": {
+                                        "type": "uri",
+                                        "label": "Menu",
+                                        "uri": data['menu']
+                                        },
+                                        "height": "sm",
+                                        "style": "link"
+                                    }
+                                        ]
                                     }
                                 ]
                             }
@@ -93,8 +111,8 @@ def getStar(n_star):
 
     star_list = []
 
-    for i in range(6):
-        if(i <= round(n_star)):
+    for i in range(5):
+        if(i <= (round(n_star)-1)):
             star_list.append(star)
         else :
             star_list.append(gray_star)
