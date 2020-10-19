@@ -26,76 +26,103 @@ def get_flex(data,n_res):
 
 def getFlexcontent(data):
     content = {
-                            "type": "bubble",
-                            "hero": {
-                                "type": "image",
-                                "url": "https://static.posttoday.com/media/content/2018/10/09/7E68135B4E03435881B219B331FB9169.jpg",
-                                "size": "full",
-                                "aspectRatio": "20:13",
-                                "aspectMode": "cover",
-                                "backgroundColor": "#FFFFFFFF",
-                                "action": {
-                                    "type": "uri",
-                                    "label": "Line",
-                                    "uri": "https://linecorp.com/"
-                                }
+                "type": "bubble",
+                "hero": {
+                    "type": "image",
+                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+                    "size": "full",
+                    "aspectRatio": "20:13",
+                    "aspectMode": "cover",
+                    "action": {
+                    "type": "uri",
+                    "label": "Line",
+                    "uri": "https://linecorp.com/"
+                    }
+                },
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                    {
+                        "type": "text",
+                        "text": data["store_name"]
+                        "weight": "bold",
+                        "size": "xl",
+                        "contents": []
+                    },
+                    {
+                        "type": "box",
+                        "layout": "baseline",
+                        "margin": "md",
+                        "contents": getStar(data["rating"])
+                    },
+                    {
+                        "type": "box",
+                        "layout": "vertical",
+                        "spacing": "sm",
+                        "margin": "lg",
+                        "contents": [
+                        {
+                            "type": "box",
+                            "layout": "baseline",
+                            "spacing": "sm",
+                            "contents": [
+                            {
+                                "type": "text",
+                                "text": "Message",
+                                "size": "sm",
+                                "color": "#AAAAAA",
+                                "flex": 1,
+                                "contents": []
                             },
-                            "body": {
-                                "type": "box",
-                                "layout": "vertical",
-                                "contents": [
-                                    {
-                                        "type": "text",
-                                        "text": data["store_name"],
-                                        "weight": "bold",
-                                        "size": "xl",
-                                        "contents": []
-                                    },
-                                    {
-                                        "type": "box",
-                                        "layout": "baseline",
-                                        "margin": "md",
-                                        "contents": getStar(data["rating"])
-                                    },
-                                    {
-                                        "type": "box",
-                                        "layout": "vertical",
-                                        "spacing": "sm",
-                                        "margin": "lg",
-                                        "contents": [
-                                                {
-                                        "type": "button",
-                                        "action": {
-                                        "type": "uri",
-                                        "label": "Map",
-                                        "uri": gg_map_link(data['lat'],data['lng'])
-                                        },
-                                        "height": "sm",
-                                        "style": "link"
-                                    }
-                                        ]
-                                    },
-                                    {
-                                        "type": "box",
-                                        "layout": "vertical",
-                                        "spacing": "sm",
-                                        "margin": "lg",
-                                        "contents": [
-                                                {
-                                        "type": "button",
-                                        "action": {
-                                        "type": "uri",
-                                        "label": "Menu",
-                                        "uri": data['menu']
-                                        },
-                                        "height": "sm",
-                                        "style": "link"
-                                    }
-                                        ]
-                                    }
-                                ]
+                            {
+                                "type": "text",
+                                "text": "data['message']",
+                                "size": "sm",
+                                "color": "#666666",
+                                "flex": 5,
+                                "wrap": true,
+                                "contents": []
                             }
+                            ]
                         }
+                        ]
+                    }
+                    ]
+                },
+                "footer": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "flex": 0,
+                    "spacing": "sm",
+                    "contents": [
+                    {
+                        "type": "button",
+                        "action": {
+                        "type": "uri",
+                        "label": "MAP",
+                        "uri": gg_map_link(data['lat'],data['lng'])
+                        },
+                        "height": "sm",
+                        "style": "link"
+                    },
+                    {
+                        "type": "button",
+                        "action": {
+                        "type": "uri",
+                        "label": "MENU",
+                        "uri": data['menu']
+                        },
+                        "height": "sm",
+                        "style": "link"
+                    },
+                    {
+                        "type": "spacer",
+                        "size": "sm"
+                    }
+                    ]
+                }
+                }
     return content
 def getStar(n_star):
     star = {
