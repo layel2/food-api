@@ -73,7 +73,6 @@ def getFlexcontent(data):
                                         "height": "sm",
                                         "style": "link"
                                     },
-
                                             {
                                                 "type": "box",
                                                 "layout": "baseline",
