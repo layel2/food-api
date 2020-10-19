@@ -111,7 +111,7 @@ def getFlexcontent(data):
                         "action": {
                         "type": "uri",
                         "label": "MENU",
-                        "uri": data['menu']
+                        "uri": 'https://'+data['menu']
                         },
                         "height": "sm",
                         "style": "link"
