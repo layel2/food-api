@@ -102,7 +102,7 @@ def getFlexcontent(data):
                                 ]
                             }
                         }
-
+    return content
 def getStar(n_star):
     star = {
             "type": "icon",
