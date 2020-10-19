@@ -62,11 +62,12 @@ async def getRes(place:str,food_cate:str,num:int = 3):
 	min_arg = np.argsort(dist)[:num]
 	data_out = data.iloc[min_arg]
 	data_out['dist'] = dist[min_arg]
-	return data_out.reset_index().drop(columns=['Location_query']).to_dict(orient='index')
+	return get_flex(data_out.reset_index().drop(columns=['Location_query']).to_dict(orient='index'))
+	#return data_out.reset_index().drop(columns=['Location_query']).to_dict(orient='index')
 
 @app.get("/api/flex")
 async def call_flex():
-	return get_flex()
+	return get_flex_test()
 
 if __name__ == "__main__" :
     uvicorn.run("main:app",host="0.0.0.0")
