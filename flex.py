@@ -45,7 +45,7 @@ def getFlexcontent(data):
                     "contents": [
                     {
                         "type": "text",
-                        "text": data["store_name"]
+                        "text": data["store_name"],
                         "weight": "bold",
                         "size": "xl",
                         "contents": []
