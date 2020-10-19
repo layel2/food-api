@@ -73,6 +73,16 @@ def getFlexcontent(data):
                                         "height": "sm",
                                         "style": "link"
                                     },
+                                    {
+                                        "type": "button",
+                                        "action": {
+                                        "type": "uri",
+                                        "label": "Menu",
+                                        "uri": data['menu']
+                                        },
+                                        "height": "sm",
+                                        "style": "link"
+                                    },
                                             {
                                                 "type": "box",
                                                 "layout": "baseline",
@@ -80,7 +90,7 @@ def getFlexcontent(data):
                                                 "contents": [
                                                     {
                                                         "type": "text",
-                                                        "text": "เวลา",
+                                                        "text": "Message",
                                                         "size": "sm",
                                                         "color": "#AAAAAA",
                                                         "flex": 1,
@@ -88,7 +98,7 @@ def getFlexcontent(data):
                                                     },
                                                     {
                                                         "type": "text",
-                                                        "text": "10:00 - 23:00",
+                                                        "text": data['featuredMessage'],
                                                         "size": "sm",
                                                         "color": "#666666",
                                                         "flex": 5,
@@ -111,7 +121,7 @@ def getStar(n_star):
             }
     gray_star = {
             "type": "icon",
-            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png",
+            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png",
             "size": "sm"
             }
 
