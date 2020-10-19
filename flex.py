@@ -50,32 +50,16 @@ def get_flex(data):
                                         "spacing": "sm",
                                         "margin": "lg",
                                         "contents": [
-                                            {
-                                                "type": "box",
-                                                "layout": "baseline",
-                                                "spacing": "sm",
-                                                "contents": [
-                                                    {
-                                                        "type": "text",
-                                                        "text": "ที่อยู่",
-                                                        "size": "sm",
-                                                        "color": "#AAAAAA",
-                                                        "flex": 1,
-                                                        "contents": []
-                                                    },
-       
-													{
-                                                        "type": "button",
-                                                        "action": {
-                                                        "type": "uri",
-                                                        "label": "MAP",
-                                                        "uri": gg_map_link(data[0]["lat"],data[0]["lng"])
-                                                        },
-                                                        "height": "sm",
-                                                        "style": "link"
-                                                    }
-                                                ]
-                                            },
+                                                {
+                                        "type": "button",
+                                        "action": {
+                                        "type": "uri",
+                                        "label": "CALL",
+                                        "uri": "https://linecorp.com"
+                                        },
+                                        "height": "sm",
+                                        "style": "link"
+                                    },
                                             {
                                                 "type": "box",
                                                 "layout": "baseline",
