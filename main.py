@@ -48,7 +48,7 @@ async def closeRes10_bn(p_latitude:str,p_longitude:str):
 	return data_out.reset_index().drop(columns=['Location_query','lat','lng']).to_dict(orient='index')
 
 @app.get("/api/getRes")
-async def getRes(place:str,food_cate:str,num:int = 3):
+async def getRes(place:str,food_cate:str,num:int = 5):
 	"""
 	Get data by string place
 	- **place** Place of location ex.สยามพารากอน
