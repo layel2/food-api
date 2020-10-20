@@ -11,7 +11,7 @@ def get_flex(data,n_res):
         "line_payload": [
             {
                 "type": "flex",
-                "altText": "this is a flex message",
+                "altText": "Your food!",
                 "contents": {
                     "type": "carousel",
                     "contents": main_contents
@@ -36,7 +36,7 @@ def getFlexcontent(data):
                     "action": {
                     "type": "uri",
                     "label": "Line",
-                    "uri": "https://linecorp.com/"
+                    "uri": 'https://'+data['menu']
                     }
                 },
                 "body": {
