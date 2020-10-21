@@ -82,7 +82,7 @@ async def getRes_location(p_latitude:float,p_longitude,food_cate:str,num:int = 5
 @app.get("/api/getUser_res")
 async def getUser_res(customer_id:str):
 	read_data = user_db_res(customer_id)
-	if read_data == None :
+	if read_data is None :
 		return None
 	lat,lng,food_cate = read_data
 	return getRes_location(p_latitude = lat, p_longitude = lng, food_cate=food_cate)
