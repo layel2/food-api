@@ -15,7 +15,7 @@ async def retval(param:str=None):
 	return{"msg":param}
 
 @app.get("/api/getRes")
-async def getRes(place:str,food_cate:str,num:int = 5,customer_id:str=None):
+async def getRes(place:str,food_cate:str,num:int = 9,customer_id:str=None):
 	"""
 	Get data by string place
 	- **place** Place of location ex.สยามพารากอน
@@ -45,7 +45,7 @@ async def getedLocation(p_latitude: str, p_longitude: str):
 
 
 @app.get('/api/getResGPS')
-async def getResByShare(p_latitude: str, p_longitude: str, food_cate: str, num: int = 5, customer_id:str=None):
+async def getResByShare(p_latitude: str, p_longitude: str, food_cate: str, num: int = 9, customer_id:str=None):
     lat = float(p_latitude)
     lng = float(p_longitude)
     print(type(lat))
@@ -64,11 +64,11 @@ async def getResByShare(p_latitude: str, p_longitude: str, food_cate: str, num: 
 
 
 @app.get("/api/getRes_location")
-def getRes_location(p_latitude:float,p_longitude,food_cate:str,num:int = 5,customer_id:str=None):
+def getRes_location(p_latitude:float,p_longitude,food_cate:str,num:int = 9,customer_id:str=None):
 	return getRes_location_fn(p_latitude=p_latitude,p_longitude=p_longitude,
 						food_cate=food_cate,num=num,customer_id=customer_id)
 
-def getRes_location_fn(p_latitude:float,p_longitude,food_cate:str,num:int = 5,customer_id:str=None):
+def getRes_location_fn(p_latitude:float,p_longitude,food_cate:str,num:int = 9,customer_id:str=None):
 	lat,lng = p_latitude,p_longitude
 	data = read_gsheet()
 	data = data[(data['categories_1']==food_cate) | (data['categories_2']==food_cate) | (data['categories_3']==food_cate)]
