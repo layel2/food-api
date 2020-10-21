@@ -84,7 +84,7 @@ async def getUser_res(customer_id:str):
 	read_data = user_db_res(customer_id)
 	if read_data is None :
 		return None
-	lat,lng,food_cate = read_data
+	lat,lng,food_cate = read_data[0]
 	return getRes_location(p_latitude = lat, p_longitude = lng, food_cate=food_cate)
 
 
