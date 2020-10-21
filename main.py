@@ -48,7 +48,7 @@ async def closeRes10_bn(p_latitude:str,p_longitude:str):
 	return data_out.reset_index().drop(columns=['Location_query','lat','lng']).to_dict(orient='index')
 
 @app.get("/api/getRes")
-async def getRes(place:str,food_cate:str,num:int = 5):
+async def getRes(place:str,food_cate:str,num:int = 5,customer_id=None):
 	"""
 	Get data by string place
 	- **place** Place of location ex.สยามพารากอน
@@ -62,8 +62,10 @@ async def getRes(place:str,food_cate:str,num:int = 5):
 	min_arg = np.argsort(dist)[:num]
 	data_out = data.iloc[min_arg]
 	data_out['dist'] = dist[min_arg]
+	if customer_id is not None :
+		user_update(customer_id,place,food_cate)
 	return get_flex(data_out.reset_index().to_dict(orient='index'),num)
-	#return data_out.reset_index().drop(columns=['Location_query']).to_dict(orient='index')
+
 
 @app.get("/api/flex")
 async def call_flex():
