@@ -47,7 +47,7 @@ def user_update(customer_id,lat,lng,food_cate) :
         worksheet.update(update_row,[[lat,lng,food_cate]])
 
     else :
-        cellRow = len(df) + 1
+        cellRow = len(df) + 2
         update_row = 'A'+str(cellRow)+':D'+str(cellRow)
         worksheet.update(update_row,[[customer_id,lat,lng,food_cate]])
     
