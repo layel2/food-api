@@ -67,7 +67,7 @@ async def getRes(place:str,food_cate:str,num:int = 5,customer_id:str=None):
 	return get_flex(data_out.reset_index().to_dict(orient='index'),num)
 
 @app.get("/api/getRes_location")
-async def getRes_location(p_latitude:float,p_longitude:,food_cate:str,num:int = 5,customer_id:str=None):
+async def getRes_location(p_latitude:float,p_longitude,food_cate:str,num:int = 5,customer_id:str=None):
 	lat,lng = p_latitude,p_longitude
 	data = read_gsheet()
 	data = data[(data['categories_1']==food_cate) | (data['categories_2']==food_cate) | (data['categories_3']==food_cate)]
@@ -82,7 +82,7 @@ async def getRes_location(p_latitude:float,p_longitude:,food_cate:str,num:int = 
 @app.get("/api/getUser_res")
 async def getUser_res(customer_id:str):
 	read_data = user_db_res(customer_id)
-	if read_data = None :
+	if read_data == None :
 		return None
 	lat,lng,food_cate = read_data
 	return getRes_location(p_latitude = lat, p_longitude = lng, food_cate=food_cate)
