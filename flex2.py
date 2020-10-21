@@ -5,7 +5,9 @@ from fastapi.responses import JSONResponse
 
 def get_flex(data, n_res):
     main_contents = []
+
     for i in range(n_res):
+        print(data[i]["price"])
         main_contents.append(getFlexcontent(data[i]))
     return_json = {
         "line_payload": [
@@ -27,101 +29,108 @@ def get_flex(data, n_res):
 def getFlexcontent(data):
     content = {
         "type": "bubble",
-                "hero": {
-                    "type": "image",
-                    "url": data['img'],
-                    "size": "full",
-                    "aspectRatio": "20:13",
-                    "aspectMode": "cover",
-                    "action": {
-                        "type": "uri",
-                        "label": "Line",
-                        "uri": 'https://'+data['menu']
-                    }
-                },
+        "hero": {
+            "type": "image",
+            "url": data['img'],
+                "size": "full",
+                "aspectRatio": "20:13",
+                "aspectMode": "cover",
+                "action": {
+                    "type": "uri",
+                    "label": "Line",
+                    "uri": 'https://'+data['menu']
+            }
+        },
         "body": {
-                    "type": "box",
-                    "layout": "vertical",
-                    "contents": [
-                        {
-                            "type": "text",
-                            "text": data["store_name"],
-                            "weight": "bold",
-                            "size": "xl",
-                            "contents": []
-                        },
-                        {
-                            "type": "box",
-                            "layout": "baseline",
-                            "margin": "md",
-                            "contents": getStar(data["rating"])
-                        },
-                        {
-                            "type": "box",
-                            "layout": "vertical",
-                            "spacing": "sm",
-                            "margin": "lg",
-                            "contents": [
-                                {
-                                    "type": "box",
-                                    "layout": "baseline",
-                                    "spacing": "sm",
-                                    "contents": [
-                                        {
-                                            "type": "text",
-                                            "text": "ราคา",
-                                            "size": "sm",
-                                            "color": "#AAAAAA",
-                                            "flex": 1,
-                                            "contents": []
-                                        },
-                                        {
-                                            "type": "text",
-                                            "text": data['featuredMessage']+" ",
-                                            "size": "sm",
-                                            "color": "#666666",
-                                            "flex": 5,
-                                            "wrap": True,
-                                            "contents": []
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+                    {
+                        "type": "text",
+                        "text": data["store_name"],
+                        "weight": "bold",
+                        "size": "xl",
+                        "contents": []
+                    },
+                {
+                        "type": "box",
+                        "layout": "baseline",
+                        "margin": "md",
+                        "contents": getStar(data["rating"])
                 },
-        "footer": {
-                    "type": "box",
-                    "layout": "vertical",
-                    "flex": 0,
-                    "spacing": "sm",
-                    "contents": [
-                        {
-                            "type": "button",
-                            "action": {
-                                "type": "uri",
-                                "label": "MAP",
-                                "uri": gg_map_link(data['lat'], data['lng'])
-                            },
-                            "height": "sm",
-                            "style": "link"
-                        },
-                        {
-                            "type": "button",
-                            "action": {
-                                "type": "uri",
-                                "label": "MENU",
-                                "uri": 'https://'+data['menu']
-                            },
-                            "height": "sm",
-                            "style": "link"
-                        },
-                        {
-                            "type": "spacer",
-                            "size": "sm"
-                        }
-                    ]
+                {
+                        "type": "box",
+                        "layout": "vertical",
+                        "spacing": "sm",
+                        "margin": "lg",
+                        "contents": [
+
+                            {
+                                "type": "box",
+                                "layout": "baseline",
+                                "spacing": "sm",
+                                "contents": [
+                                    {
+                                        "type": "spacer",
+                                        "size": "xs"
+                                    },
+                                    {
+                                        "type": "text",
+                                        "text": "ช่วงราคา",
+                                        "size": "sm",
+                                        "color": "#AAAAAA",
+                                        "flex": 2,
+                                        "contents": []
+                                    },
+                                    {
+                                        "type": "text",
+                                        "text": data["price"],
+                                        "size": "sm",
+                                        "color": "#666666",
+                                        "flex": 5,
+                                        "wrap": True,
+                                        "contents": []
+                                    }
+                                ]
+                            }
+                        ]
                 }
+            ]
+        },
+        "footer": {
+            "type": "box",
+            "layout": "vertical",
+            "flex": 0,
+            "spacing": "sm",
+            "contents": [
+                    {
+                        "type": "button",
+                        "action": {
+                            "type": "uri",
+                            "label": "แผนที่ร้าน",
+                            "uri": gg_map_link(data['lat'], data['lng'])
+                        },
+                        "color": "#FF8409FF",
+                        "height": "sm",
+                        "style": "primary"
+                    },
+                {
+                        "type": "button",
+                        "action": {
+                            "type": "uri",
+                            "label": "ร้านอาหาร",
+                            "uri": 'https://'+data['menu']
+                        },
+                        "color": "#FF8409FF",
+                        "height": "sm",
+                        "style": "primary"
+                        },
+                {
+                        "type": "spacer",
+                        "size": "xs"
+                        }
+            ]
+        }
     }
     return content
 
@@ -159,6 +168,7 @@ def getStar(n_star):
 
 
 def gg_map_link(lat, lng):
+    print("https://www.google.com/maps/search/"+str(lat)+","+str(lng))
     return "https://www.google.com/maps/search/"+str(lat)+","+str(lng)
 
 
