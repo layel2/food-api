@@ -46,7 +46,6 @@ async def getedLocation(p_latitude: str, p_longitude: str):
 
 @app.get('/api/getResGPS')
 async def getResByShare(p_latitude: str, p_longitude: str, food_cate: str, num: int = 5, customer_id:str=None):
-
     lat = float(p_latitude)
     lng = float(p_longitude)
     print(type(lat))
@@ -59,8 +58,8 @@ async def getResByShare(p_latitude: str, p_longitude: str, food_cate: str, num: 
     min_arg = np.argsort(dist)[:num]
     data_out = data.iloc[min_arg]
     data_out['dist'] = dist[min_arg]
-	if customer_id is not None :
-		user_db_update(customer_id,lat,lng,food_cate)
+    if customer_id is not None :
+        user_db_update(customer_id,lat,lng,food_cate)
     return get_flex(data_out.reset_index().to_dict(orient='index'), num)
 
 
