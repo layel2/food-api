@@ -87,7 +87,7 @@ async def getUser_random(customer_id:str):
 	data = read_gsheet()
 	if read_data is None :
 		data = data.sample(frac=1)
-		return get_flex(data_out.reset_index().to_dict(orient='index'),num)
+		return get_flex(data.reset_index().to_dict(orient='index'),num)
 	lat,lng,food_cate = read_data[0]
 	dist = find_dist((lat,lng),data[['lat','lng']].values)
 	min_arg = np.argsort(dist)[:30]
