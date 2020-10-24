@@ -7,7 +7,7 @@ def get_flex(data, n_res):
     main_contents = []
 
     for i in range(n_res):
-        print(data[i]["price"])
+        #print(data[i]["price"])
         main_contents.append(getFlexcontent(data[i]))
     return_json = {
         "line_payload": [
@@ -168,7 +168,7 @@ def getStar(n_star):
 
 
 def gg_map_link(lat, lng):
-    print("https://www.google.com/maps/search/"+str(lat)+","+str(lng))
+    #print("https://www.google.com/maps/search/"+str(lat)+","+str(lng))
     return "https://www.google.com/maps/search/"+str(lat)+","+str(lng)
 
 

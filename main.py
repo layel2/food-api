@@ -40,7 +40,7 @@ async def getedLocation(p_latitude: str, p_longitude: str):
     return_json = {
         'intent': "in_getedlocation"
     }
-    print(p_longitude)
+    #print(p_longitude)
     return JSONResponse(content=return_json, headers=headers)
 
 
@@ -48,8 +48,8 @@ async def getedLocation(p_latitude: str, p_longitude: str):
 async def getResByShare(p_latitude: str, p_longitude: str, food_cate: str, num: int = 9, customer_id:str=None):
     lat = float(p_latitude)
     lng = float(p_longitude)
-    print(type(lat))
-    print(type(lng))
+    #print(type(lat))
+    #print(type(lng))
     data = read_gsheet()
     food_cate = food_cate
     data = data[(data['categories_1'] == food_cate) | (
