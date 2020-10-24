@@ -81,12 +81,19 @@ def getRes_location_fn(p_latitude:float,p_longitude,food_cate:str,num:int = 9,cu
 	return get_flex(data_out.reset_index().to_dict(orient='index'),num)
 
 @app.get("/api/getUser_res")
-async def getUser_res(customer_id:str):
+async def getUser_random(customer_id:str):
+	num = 9
 	read_data = user_db_res(customer_id)
+	data = read_gsheet()
 	if read_data is None :
-		return None
+		data = data.sample(frac=1)
+		return get_flex(data_out.reset_index().to_dict(orient='index'),num)
 	lat,lng,food_cate = read_data[0]
-	return getRes_location(p_latitude = lat, p_longitude = lng, food_cate=food_cate)
+	dist = find_dist((lat,lng),data[['lat','lng']].values)
+	min_arg = np.argsort(dist)[:30]
+	data_out = data.iloc[min_arg].sample(frac=1).iloc[:num]
+	data_out['dist'] = dist[min_arg]
+	return get_flex(data_out.reset_index().to_dict(orient='index'),num)
 
 
 @app.get("/api/flex")
