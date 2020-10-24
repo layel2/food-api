@@ -31,14 +31,14 @@ def getFlexcontent(data):
         "type": "bubble",
         "hero": {
             "type": "image",
-            "url": data['img'],
+            "url": url_decode(data['img']),
                 "size": "full",
                 "aspectRatio": "20:13",
                 "aspectMode": "cover",
                 "action": {
                     "type": "uri",
                     "label": "Line",
-                    "uri": 'https://'+data['menu']
+                    "uri": 'https://'+url_decode(data['menu'])
             }
         },
         "body": {
@@ -119,7 +119,7 @@ def getFlexcontent(data):
                         "action": {
                             "type": "uri",
                             "label": "ร้านอาหาร",
-                            "uri": 'https://'+data['menu']
+                            "uri": 'https://'+ url_decode(data['menu'])
                         },
                         "color": "#FF8409FF",
                         "height": "sm",
@@ -171,6 +171,11 @@ def gg_map_link(lat, lng):
     print("https://www.google.com/maps/search/"+str(lat)+","+str(lng))
     return "https://www.google.com/maps/search/"+str(lat)+","+str(lng)
 
+
+from urllib import parse
+
+def url_decode(url):
+    return parse.unquote(url)
 
 def get_flex_test():
     return_json = {

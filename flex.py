@@ -36,7 +36,7 @@ def getFlexcontent(data):
                     "action": {
                         "type": "uri",
                         "label": "Line",
-                        "uri": 'https://'+data['menu']
+                        "uri": 'https://'+url_decode(data['menu'])
                     }
                 },
         "body": {
@@ -111,7 +111,7 @@ def getFlexcontent(data):
                             "action": {
                                 "type": "uri",
                                 "label": "MENU",
-                                "uri": 'https://'+data['menu']
+                                "uri": 'https://'+ url_decode(data['menu'])
                             },
                             "height": "sm",
                             "style": "link"
@@ -160,6 +160,11 @@ def getStar(n_star):
 
 def gg_map_link(lat, lng):
     return "https://www.google.com/maps/search/"+str(lat)+","+str(lng)
+
+from urllib import parse
+
+def url_decode(url):
+    return parse.unquote(url)
 
 
 def get_flex_test():
