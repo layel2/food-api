@@ -92,7 +92,7 @@ async def getUser_random(customer_id:str):
 	dist = find_dist((lat,lng),data[['lat','lng']].values)
 	min_arg = np.argsort(dist)[:30]
 	data_out = data.iloc[min_arg].sample(frac=1).iloc[:num]
-	data_out['dist'] = dist[min_arg]
+	#data_out['dist'] = dist[min_arg]
 	return get_flex(data_out.reset_index().to_dict(orient='index'),num)
 
 
